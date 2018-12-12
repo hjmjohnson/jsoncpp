@@ -123,8 +123,8 @@ bool Reader::parse(const char* beginDoc,
   end_ = endDoc;
   collectComments_ = collectComments;
   current_ = begin_;
-  lastValueEnd_ = 0;
-  lastValue_ = 0;
+  lastValueEnd_ = nullptr;
+  lastValue_ = nullptr;
   commentsBefore_.clear();
   errors_.clear();
   while (!nodes_.empty())
@@ -380,7 +380,7 @@ void Reader::addComment(Location begin,
   assert(collectComments_);
   const JSONCPP_STRING& normalized = normalizeEOL(begin, end);
   if (placement == commentAfterOnSameLine) {
-    assert(lastValue_ != 0);
+    assert(lastValue_ != nullptr);
     lastValue_->setComment(normalized, placement);
   } else {
     commentsBefore_ += normalized;
@@ -848,7 +848,7 @@ bool Reader::pushError(const Value& value, const JSONCPP_STRING& message) {
   ErrorInfo info;
   info.token_ = token;
   info.message_ = message;
-  info.extra_ = 0;
+  info.extra_ = nullptr;
   errors_.push_back(info);
   return true;
 }
@@ -988,7 +988,7 @@ private:
                                    Location end,
                                    unsigned int& unicode);
   bool
-  addError(const JSONCPP_STRING& message, Token& token, Location extra = 0);
+  addError(const JSONCPP_STRING& message, Token& token, Location extra = nullptr);
   bool recoverFromError(TokenType skipUntilToken);
   bool addErrorAndRecover(const JSONCPP_STRING& message,
                           Token& token,
@@ -1047,8 +1047,8 @@ bool OurReader::parse(const char* beginDoc,
   end_ = endDoc;
   collectComments_ = collectComments;
   current_ = begin_;
-  lastValueEnd_ = 0;
-  lastValue_ = 0;
+  lastValueEnd_ = nullptr;
+  lastValue_ = nullptr;
   commentsBefore_.clear();
   errors_.clear();
   while (!nodes_.empty())
@@ -1354,7 +1354,7 @@ void OurReader::addComment(Location begin,
   assert(collectComments_);
   const JSONCPP_STRING& normalized = normalizeEOL(begin, end);
   if (placement == commentAfterOnSameLine) {
-    assert(lastValue_ != 0);
+    assert(lastValue_ != nullptr);
     lastValue_->setComment(normalized, placement);
   } else {
     commentsBefore_ += normalized;
@@ -1863,7 +1863,7 @@ bool OurReader::pushError(const Value& value, const JSONCPP_STRING& message) {
   ErrorInfo info;
   info.token_ = token;
   info.message_ = message;
-  info.extra_ = 0;
+  info.extra_ = nullptr;
   errors_.push_back(info);
   return true;
 }
