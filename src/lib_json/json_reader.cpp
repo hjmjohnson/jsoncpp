@@ -19,7 +19,6 @@
 #include <sstream>
 #include <utility>
 
-#if __cplusplus >= 201103L
 #include <cstdio>
 
 #if !defined(snprintf)
@@ -29,16 +28,7 @@
 #if !defined(sscanf)
 #define sscanf std::sscanf
 #endif
-#else
-#include <stdio.h>
 
-#if defined(_MSC_VER)
-#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
-#if !defined(snprintf)
-#define snprintf _snprintf
-#endif
-#endif
-#endif
 
 #if defined(_MSC_VER) && _MSC_VER >= 1400 // VC++ 8.0
 // Disable warning about strdup being deprecated.
@@ -56,11 +46,7 @@ static size_t const stackLimit_g =
 
 namespace Json {
 
-#if __cplusplus >= 201103L || (defined(_CPPLIB_VER) && _CPPLIB_VER >= 520)
 typedef std::unique_ptr<CharReader> CharReaderPtr;
-#else
-typedef std::auto_ptr<CharReader> CharReaderPtr;
-#endif
 
 // Implementation of class Features
 // ////////////////////////////////

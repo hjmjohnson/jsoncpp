@@ -12,10 +12,10 @@
   ((JSONCPP_VERSION_MAJOR << 24) | (JSONCPP_VERSION_MINOR << 16) |             \
    (JSONCPP_VERSION_PATCH << 8))
 
-#ifdef JSONCPP_USING_SECURE_MEMORY
+# ifdef JSONCPP_USING_SECURE_MEMORY
 #undef JSONCPP_USING_SECURE_MEMORY
-#endif
-#define JSONCPP_USING_SECURE_MEMORY 0
+# endif
+# define JSONCPP_USING_SECURE_MEMORY 0
 // If non-zero, the library zeroes any memory that it has allocated before
 // it frees its memory.
 

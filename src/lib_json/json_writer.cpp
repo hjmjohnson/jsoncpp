@@ -15,7 +15,6 @@
 #include <sstream>
 #include <utility>
 
-#if __cplusplus >= 201103L
 #include <cmath>
 #include <cstdio>
 
@@ -30,42 +29,6 @@
 #if !defined(snprintf)
 #define snprintf std::snprintf
 #endif
-#else
-#include <math.h>
-#include <stdio.h>
-
-#if defined(_MSC_VER)
-#if !defined(isnan)
-#include <float.h>
-#define isnan _isnan
-#endif
-
-#if !defined(isfinite)
-#include <float.h>
-#define isfinite _finite
-#endif
-
-#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1
-#if !defined(snprintf)
-#define snprintf _snprintf
-#endif
-#endif
-
-#if defined(__sun) && defined(__SVR4) // Solaris
-#if !defined(isfinite)
-#include <ieeefp.h>
-#define isfinite finite
-#endif
-#endif
-
-#if defined(__hpux)
-#if !defined(isfinite)
-#if defined(__ia64) && !defined(finite)
-#define isfinite(x)                                                            \
-  ((sizeof(x) == sizeof(float) ? _Isfinitef(x) : _IsFinite(x)))
-#endif
-#endif
-#endif
 
 #if !defined(isnan)
 // IEEE standard states that NaN values will not compare to themselves
@@ -77,7 +40,7 @@
 #define isfinite finite
 #endif
 #endif
-#endif
+
 
 #if defined(_MSC_VER) && _MSC_VER >= 1400 // VC++ 8.0
 // Disable warning about strdup being deprecated.
@@ -86,11 +49,7 @@
 
 namespace Json {
 
-#if __cplusplus >= 201103L || (defined(_CPPLIB_VER) && _CPPLIB_VER >= 520)
 typedef std::unique_ptr<StreamWriter> StreamWriterPtr;
-#else
-typedef std::auto_ptr<StreamWriter> StreamWriterPtr;
-#endif
 
 JSONCPP_STRING valueToString(LargestInt value) {
   UIntToStringBuffer buffer;
