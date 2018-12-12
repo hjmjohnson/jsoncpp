@@ -252,7 +252,7 @@ private:
   static bool hasCommentForValue(const Value& value);
   static JSONCPP_STRING normalizeEOL(const JSONCPP_STRING& text);
 
-  typedef std::vector<JSONCPP_STRING> ChildValues;
+  using ChildValues = std::vector<JSONCPP_STRING>;
 
   ChildValues childValues_;
   JSONCPP_STRING document_;
@@ -326,7 +326,7 @@ private:
   static bool hasCommentForValue(const Value& value);
   static JSONCPP_STRING normalizeEOL(const JSONCPP_STRING& text);
 
-  typedef std::vector<JSONCPP_STRING> ChildValues;
+  using ChildValues = std::vector<JSONCPP_STRING>;
 
   ChildValues childValues_;
   JSONCPP_OSTREAM* document_;

@@ -41,7 +41,7 @@ public:
 /// Must be a POD to allow inline initialisation without stepping
 /// into the debugger.
 struct PredicateContext {
-  typedef unsigned int Id;
+  using Id = unsigned int;
   Id id_;
   const char* file_;
   unsigned int line_;
@@ -105,7 +105,7 @@ private:
   static JSONCPP_STRING indentText(const JSONCPP_STRING& text,
                                    const JSONCPP_STRING& indent);
 
-  typedef std::deque<Failure> Failures;
+  using Failures = std::deque<Failure>;
   Failures failures_;
   JSONCPP_STRING name_;
   PredicateContext rootPredicateNode_;
@@ -171,7 +171,7 @@ private:
   static void preventDialogOnCrash();
 
 private:
-  typedef std::deque<TestCaseFactory> Factories;
+  using Factories = std::deque<TestCaseFactory>;
   Factories tests_;
 };
 

@@ -49,7 +49,7 @@
 
 namespace Json {
 
-typedef std::unique_ptr<StreamWriter> StreamWriterPtr;
+using StreamWriterPtr = std::unique_ptr<StreamWriter>;
 
 JSONCPP_STRING valueToString(LargestInt value) {
   UIntToStringBuffer buffer;
@@ -857,7 +857,7 @@ private:
   void writeCommentAfterValueOnSameLine(Value const& root);
   static bool hasCommentForValue(const Value& value);
 
-  typedef std::vector<JSONCPP_STRING> ChildValues;
+  using ChildValues = std::vector<JSONCPP_STRING>;
 
   ChildValues childValues_;
   JSONCPP_STRING indentString_;

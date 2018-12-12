@@ -310,7 +310,7 @@ void Runner::listTests() const {
 }
 
 int Runner::runCommandLine(int argc, const char* argv[]) const {
-  // typedef std::deque<JSONCPP_STRING> TestNames;
+  // using TestNames = std::deque<JSONCPP_STRING>;
   Runner subrunner;
   for (int index = 1; index < argc; ++index) {
     JSONCPP_STRING opt = argv[index];
