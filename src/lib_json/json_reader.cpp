@@ -1909,7 +1909,7 @@ public:
 };
 
 CharReaderBuilder::CharReaderBuilder() { setDefaults(&settings_); }
-CharReaderBuilder::~CharReaderBuilder() {}
+CharReaderBuilder::~CharReaderBuilder() = default;
 CharReader* CharReaderBuilder::newCharReader() const {
   bool collectComments = settings_["collectComments"].asBool();
   OurFeatures features = OurFeatures::all();
