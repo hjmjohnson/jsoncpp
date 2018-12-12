@@ -42,7 +42,7 @@
 #endif
 
 
-#if defined(_MSC_VER) && _MSC_VER >= 1400 // VC++ 8.0
+#if defined(_MSC_VER)
 // Disable warning about strdup being deprecated.
 #pragma warning(disable : 4996)
 #endif
