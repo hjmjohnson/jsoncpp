@@ -1599,7 +1599,7 @@ bool OurReader::decodeDouble(Token& token) {
 
 bool OurReader::decodeDouble(Token& token, Value& decoded) {
   double value = 0;
-  const int bufferSize = 32;
+  constexpr int bufferSize = 32;
   int count;
   ptrdiff_t const length = token.end_ - token.start_;
 

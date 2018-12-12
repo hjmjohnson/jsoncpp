@@ -225,7 +225,7 @@ JSONTEST_FIXTURE(ValueTest, objects) {
 }
 
 JSONTEST_FIXTURE(ValueTest, arrays) {
-  const unsigned int index0 = 0;
+  constexpr unsigned int index0 = 0;
 
   // Types
   IsCheck checks;
