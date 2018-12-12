@@ -55,7 +55,7 @@ Features::Features()
     : allowComments_(true), strictRoot_(false),
       allowDroppedNullPlaceholders_(false), allowNumericKeys_(false) {}
 
-Features Features::all() { return Features(); }
+Features Features::all() { return {}; }
 
 Features Features::strictMode() {
   Features features;
@@ -892,7 +892,7 @@ public:
 // exact copy of Implementation of class Features
 // ////////////////////////////////
 
-OurFeatures OurFeatures::all() { return OurFeatures(); }
+OurFeatures OurFeatures::all() { return {}; }
 
 // Implementation of class Reader
 // ////////////////////////////////
