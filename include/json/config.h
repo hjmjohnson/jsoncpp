@@ -66,9 +66,11 @@
 // In c++11 the override keyword allows you to explicitly define that a function
 // is intended to override the base-class version.  This makes the code more
 // manageable and fixes a set of common hard-to-find bugs.
-#define JSONCPP_OVERRIDE override
-#define JSONCPP_NOEXCEPT noexcept
-#define JSONCPP_OP_EXPLICIT explicit
+// JSONCPP_OVERRIDE, JSONCPP_NOEXCEPT, JSONCPP_OP_EXPLICIT are deprecated, but retained
+// for backwards compatibility of external tools.
+#define JSONCPP_OVERRIDE override     //DEPRECATED, use c++11 features directly
+#define JSONCPP_NOEXCEPT noexcept     //DEPRECATED, use c++11 features directly
+#define JSONCPP_OP_EXPLICIT explicit  //DEPRECATED, use c++11 features directly
 
 #define JSON_HAS_RVALUE_REFERENCES 1
 

@@ -55,8 +55,8 @@ namespace Json {
 class JSON_API Exception : public std::exception {
 public:
   Exception(JSONCPP_STRING const& msg);
-  ~Exception() JSONCPP_NOEXCEPT JSONCPP_OVERRIDE;
-  char const* what() const JSONCPP_NOEXCEPT JSONCPP_OVERRIDE;
+  ~Exception() noexcept override;
+  char const* what() const noexcept override;
 
 protected:
   JSONCPP_STRING msg_;
@@ -414,7 +414,7 @@ Json::Value obj_value(Json::objectValue); // {}
   bool empty() const;
 
   /// Return !isNull()
-  JSONCPP_OP_EXPLICIT operator bool() const;
+  explicit operator bool() const;
 
   /// Remove all object members and array elements.
   /// \pre type() is arrayValue, objectValue, or nullValue
